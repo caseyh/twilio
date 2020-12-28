@@ -1,17 +1,13 @@
 # Twilio
 
-[![Build Status](https://travis-ci.org/subosito/twilio.svg?branch=master)](https://travis-ci.org/subosito/twilio)
-[![Coverage Status](https://img.shields.io/codecov/c/github/subosito/twilio.svg)](https://codecov.io/gh/subosito/twilio)
-[![GoDoc](https://godoc.org/github.com/subosito/twilio?status.svg)](https://godoc.org/github.com/subosito/twilio)
-
-Simple Twilio API wrapper in Go.
+Simple Twilio API wrapper in Go. Forked from [subosito/twilio](https://github.com/caseyh/twilio) to allow better credential hygiene.
 
 ## Usage
 
 As usual you can `go get` the twilio package by issuing:
 
 ```bash
-$ go get github.com/subosito/twilio
+$ go get github.com/caseyh/twilio
 ```
 
 Then you can use it on your application:
@@ -23,7 +19,7 @@ import (
 	"log"
 	"net/url"
 
-	"github.com/subosito/twilio"
+	"github.com/caseyh/twilio"
 )
 
 var (

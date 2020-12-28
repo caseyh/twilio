@@ -1,3 +1,4 @@
 *.test
 annotate.json
 coverage.out
+.idea

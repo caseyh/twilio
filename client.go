@@ -22,10 +22,18 @@ type Client struct {
 
 	// Credentials which is used for authentication during API request
 	AccountSid string
+	AuthSid    string
 	AuthToken  string
 
 	// Services used for communicating with different parts of the Twilio API
 	Messages *MessageService
+}
+
+func (c *Client) authSid() string {
+	if c.AuthSid != "" {
+		return c.AuthSid
+	}
+	return c.AccountSid
 }
 
 // NewClient returns a new Twilio API client. This will load default http.Client if httpClient is nil.
@@ -76,7 +84,7 @@ func (c *Client) NewRequest(method, urlStr string, body io.Reader) (*http.Reques
 		req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	}
 
-	req.SetBasicAuth(c.AccountSid, c.AuthToken)
+	req.SetBasicAuth(c.authSid(), c.AuthToken)
 
 	req.Header.Add("User-Agent", c.UserAgent)
 	req.Header.Add("Accept", "application/json")

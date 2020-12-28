@@ -9,7 +9,7 @@ func testPrice(t *testing.T) {
 	var p Price
 	err := p.UnmarshalJSON([]byte(`0.74`))
 	if err != nil {
-		t.Error("Price.UnmarshalJSON returned an error %q", err)
+		t.Errorf("Price.UnmarshalJSON returned an error %q", err)
 	}
 
 	want := 0.74
@@ -22,7 +22,7 @@ func TestPrice_UnmarshalJSON_string(t *testing.T) {
 	var p Price
 	err := p.UnmarshalJSON([]byte(`"0.74"`))
 	if err != nil {
-		t.Error("Price.UnmarshalJSON returned an error %q", err)
+		t.Errorf("Price.UnmarshalJSON returned an error %q", err)
 	}
 
 	want := 0.74
@@ -35,7 +35,7 @@ func TestPrice_UnmarshalJSON_null(t *testing.T) {
 	var p Price
 	err := p.UnmarshalJSON([]byte(`null`))
 	if err != nil {
-		t.Error("Price.UnmarshalJSON returned an error %q", err)
+		t.Errorf("Price.UnmarshalJSON returned an error %q", err)
 	}
 
 	want := 0.0

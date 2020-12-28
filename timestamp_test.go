@@ -21,7 +21,7 @@ func TestTimestamp_UnmarshalJSON_string(t *testing.T) {
 	m := &Timestamp{}
 	err := m.UnmarshalJSON([]byte("Wed, 18 Aug 2010 20:01:40 +0000"))
 	if err != nil {
-		t.Error("Price.UnmarshalJSON returned an error %q", err)
+		t.Errorf("Price.UnmarshalJSON returned an error %q", err)
 	}
 
 	want := parseTimestamp("Wed, 18 Aug 2010 20:01:40 +0000")
@@ -34,7 +34,7 @@ func TestTimestamp_UnmarshalJSON_badString(t *testing.T) {
 	m := &Timestamp{}
 	err := m.UnmarshalJSON([]byte("foo/02/03"))
 	if err != nil {
-		t.Error("Price.UnmarshalJSON returned an error %q", err)
+		t.Errorf("Price.UnmarshalJSON returned an error %q", err)
 	}
 
 	want := Timestamp{}

@@ -5,5 +5,5 @@ const (
 	apiVersion = "2010-04-01"
 	apiFormat  = "json"
 	version    = "0.1.0"
-	userAgent  = "subosito/twilio//" + version
+	userAgent  = "caseyh/twilio//" + version
 )

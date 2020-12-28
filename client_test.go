@@ -12,6 +12,11 @@ func TestNewClient(t *testing.T) {
 	c := NewClient(accountSid, authToken, nil)
 	assert.Equal(t, c.BaseURL.String(), apiBaseURL)
 	assert.Equal(t, c.UserAgent, userAgent)
+	assert.Equal(t, c.AccountSid, accountSid)
+	assert.Equal(t, c.AuthToken, authToken)
+	assert.Equal(t, c.authSid(), accountSid)
+	c.AuthSid = "cdf123"
+	assert.Equal(t, c.authSid(), c.AuthSid)
 }
 
 func TestNewRequest(t *testing.T) {
